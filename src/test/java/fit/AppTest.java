@@ -48,8 +48,10 @@ public class AppTest {
             return (one.compareTo(another));
         };
 
-        // act
+        // act -- dentro listUtils tem metodo chamado sort ele é generico por isso parametro
+        //<String> e 2 parametros names, comp, primeiro listaString segundo comparatorString
         List<String> actualResult = ListUtils.<String>sort(names, comp);
+        //List<String> actualResultv1 = ListUtils.sortv1(names, comp);
 
         // assert
         assertArrayEquals(expectedResult.toArray(), actualResult.toArray());
@@ -65,12 +67,12 @@ public class AppTest {
         
 
         //act
-        Map<String, Boolean> attendanceListResult = AttendanceHelper.random(2, 50);
+        Map<String, Boolean> attendanceListResult = AttendanceHelper.random(2, 50);//quantidade de aluno e quantidade presente
 
         //assert
 
         //same size (due to parameters sent to random method)
-        assertEquals(attendanceListResult.size(), attendanceListResult.size());
+        assertEquals(attendanceListResult.size(), attendanceListExpected.size());
 
         //same percentile of 'true' values due to parameters sent to random method
         assertEquals(
